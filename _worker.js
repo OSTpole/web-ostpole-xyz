@@ -21,18 +21,10 @@ export default {
           <meta charset="UTF-8">
           <title>OSTpole IMP | 422Hz</title>
           <style>
-              @keyframes flow { 
-                  0% { background-position: 0% 50%; } 
-                  50% { background-position: 100% 50%; } 
-                  100% { background-position: 0% 50%; } 
-              }
-              @keyframes pulse { 
-                  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); border-color: rgba(212, 175, 55, 0.8); } 
-                  50% { box-shadow: 0 0 60px rgba(212, 175, 55, 1); border-color: rgba(212, 175, 55, 1); } 
-              }
+              @keyframes flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+              @keyframes pulse { 0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); border-color: rgba(212, 175, 55, 0.8); } 50% { box-shadow: 0 0 60px rgba(212, 175, 55, 1); border-color: rgba(212, 175, 55, 1); } }
               body {
                   margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;
-                  /* DEINE FARBEN: Hellblau, Gelb, Orange, Lila */
                   background: linear-gradient(-45deg, #000, #00f2ff, #ffff00, #ffa500, #800080, #000);
                   background-size: 400% 400%; animation: flow 12s ease infinite; overflow: hidden; font-family: serif;
               }
