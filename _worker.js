@@ -21,20 +21,28 @@ export default {
           <meta charset="UTF-8">
           <title>OSTpole IMP | 422Hz</title>
           <style>
-              @keyframes flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-              @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.05); opacity: 1; } }
+              @keyframes flow { 
+                  0% { background-position: 0% 50%; } 
+                  50% { background-position: 100% 50%; } 
+                  100% { background-position: 0% 50%; } 
+              }
+              @keyframes pulse { 
+                  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); border-color: rgba(212, 175, 55, 0.8); } 
+                  50% { box-shadow: 0 0 60px rgba(212, 175, 55, 1); border-color: rgba(212, 175, 55, 1); } 
+              }
               body {
                   margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center;
-                  background: linear-gradient(-45deg, #000, #00E5FF, #FFEA00, #FF8F00, #D500F9, #000);
-                  background-size: 400% 400%; animation: flow 15s ease infinite; overflow: hidden; font-family: serif;
+                  /* DEINE FARBEN: Hellblau, Gelb, Orange, Lila */
+                  background: linear-gradient(-45deg, #000, #00f2ff, #ffff00, #ffa500, #800080, #000);
+                  background-size: 400% 400%; animation: flow 12s ease infinite; overflow: hidden; font-family: serif;
               }
               .frame {
-                  border: 2px solid #D4AF37; padding: 60px; text-align: center;
-                  background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
-                  animation: pulse 5s infinite ease-in-out; box-shadow: 0 0 50px rgba(212,175,55,0.3);
+                  border: 2px solid #D4AF37; padding: 60px 80px; text-align: center;
+                  background: rgba(0,0,0,0.85); backdrop-filter: blur(15px);
+                  animation: pulse 4s infinite ease-in-out;
               }
-              h1 { color: #D4AF37; letter-spacing: 15px; font-size: 3.5em; text-transform: uppercase; margin: 0; }
-              p { color: #fff; letter-spacing: 5px; margin-top: 20px; font-family: sans-serif; }
+              h1 { color: #D4AF37; letter-spacing: 15px; font-size: 3.5em; text-transform: uppercase; margin: 0; text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+              p { color: #fff; letter-spacing: 6px; margin-top: 30px; font-family: sans-serif; font-size: 0.9em; text-transform: uppercase; }
           </style>
       </head>
       <body>
