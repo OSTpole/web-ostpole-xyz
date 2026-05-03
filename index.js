@@ -79,8 +79,8 @@ export default {
 
         <footer>
           <div style="margin-bottom: 20px;">
-            <a href="https://drive.google.com/file/d/1rKXIOMSIIFIICISV_50wFtbifiom5kw1/view?usp=sharing" target="_blank">IMPRESSUM</a>
-            <a href="https://drive.google.com/file/d/1G2sw03hXmyhzcbXkXvxsz8g4wBuiT7B/view?usp=sharing" target="_blank">DATENSCHUTZ</a>
+            <a href="https://raw.githubusercontent.com/OSTpole/web-ostpole-xyz/main/OSTpole_IMP_ressum_2026.pdf" target="_blank">IMPRESSUM</a>
+            <a href="https://raw.githubusercontent.com/OSTpole/web-ostpole-xyz/main/OSTpole_IMP_Datenschutzerklärung_DSGVO.pdf" target="_blank">DATENSCHUTZ</a>
           </div>
           OSTpole IMP // THE STRATEGIC PROTOCOL // BY CHRISTOF SCHZYRBA
         </footer>
