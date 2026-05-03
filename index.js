@@ -104,5 +104,4 @@ export default {
 
     return new Response(mainHTML, { headers: { "Content-Type": "text/html;charset=UTF-8" } });
   }
-};  }
 };
