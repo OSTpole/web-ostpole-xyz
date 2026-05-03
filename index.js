@@ -45,7 +45,7 @@ export default {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OSTpole IMP // ARCHITECH</title>
+        <title>OSTpole IMP // BUSINESS & WEB ARCHITECH</title>
         <style>${sharedCSS}</style>
       </head>
       <body>
@@ -53,12 +53,12 @@ export default {
         
         <main class="frame">
           <h1 class="title">OSTpole<span class="imp-suffix">IMP</span></h1>
-          <p style="color:var(--ice-blue); letter-spacing: 5px; opacity:0.8; margin-top:15px; font-size:0.7rem;">STRATEGIC GNOSIS // EST. 2004</p>
+          <p style="color:var(--ice-blue); letter-spacing: 5px; opacity:0.8; margin-top:15px; font-size:0.7rem;">WWW STRATEGIC GNOSIS // EST. 2004</p>
           <p style="margin-top:25px; font-size:0.95rem; letter-spacing:1px; line-height:1.4;">Digitale Souveränität & Bionische Infrastruktur.<br>Ihre Vision, unsere Architektur.</p>
           
           <div class="btn-container">
-            <a href="https://app-api.beq.com/visit?referral=FLddufm8V8YDuPWp7XMXagupB1L6adYk31rNtP0r0G83Uhhd2dHbOR9d1ihr39RA" class="btn" target="_blank">beq App (iQ-CONNECT)</a>
-            <a href="https://www.youtube.com/@ostpole" class="btn" target="_blank">YouTube (Propaganda)</a>
+            <a href="https://app-api.beq.com/visit?referral=FLddufm8V8YDuPWp7XMXagupB1L6adYk31rNtP0r0G83Uhhd2dHbOR9d1ihr39RA" class="btn" target="_blank">beq App | iQ-CONNECT</a>
+            <a href="https://www.youtube.com/@ostpole" class="btn" target="_blank">YouTube | Channel</a>
           </div>
         </main>
 
