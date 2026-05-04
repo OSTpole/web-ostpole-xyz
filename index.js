@@ -2,9 +2,6 @@ export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
 
-    // ==========================================================
-    // 1. DEINE BRÜCKE (Inhalte & Koordinaten)
-    // ==========================================================
     const CONFIG = {
       titel: "OSTpole IMP",
       slogan: "STRATEGIC GNOSIS // EST. 2004",
@@ -16,13 +13,11 @@ export default {
         hub: "https://hub.ostpole.xyz"
       },
 
+      // Deine Dokumenten-Depots auf GitHub
       impressum: "https://raw.githubusercontent.com/OSTpole/web-ostpole-xyz/main/OSTpole_IMP_ressum_2026.pdf",
       datenschutz: "https://raw.githubusercontent.com/OSTpole/web-ostpole-xyz/main/OSTpole_IMP_Datenschutzerklärung_DSGVO.pdf"
     };
 
-    // ==========================================================
-    // 2. DIE EFFEKT-MASCHINE (Farben & Design)
-    // ==========================================================
     const styles = `
       @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap');
       :root { 
@@ -34,13 +29,16 @@ export default {
       * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
       body { background: var(--bg); color: #fff; font-family: 'Orbitron', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; }
 
+      /* BIONIC CURSOR */
       #bionic-cursor { position: fixed; width: 22px; height: 22px; border: 2px solid var(--ice-blue); border-radius: 50%; pointer-events: none; z-index: 9999; animation: pulse 3s infinite; }
       @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; } 50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; } }
       
+      /* STARFIELD */
       .stars { position: fixed; width: 100%; height: 100%; z-index: 1; perspective: 1000px; }
       .star { position: absolute; background: #fff; border-radius: 50%; animation: moveStars 15s infinite linear; }
       @keyframes moveStars { from { transform: translateZ(-1000px); opacity: 0; } to { transform: translateZ(500px); opacity: 0.8; } }
 
+      /* CONTENT FRAME */
       .frame { margin-top: 60px; padding: 40px; border: 1px solid var(--ice-blue); border-radius: 30px; background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); text-align: center; z-index: 10; width: 90%; max-width: 800px; }
       h1 { font-size: clamp(1.5rem, 5vw, 3rem); letter-spacing: 12px; margin-bottom: 10px; color: var(--ice-blue); text-shadow: 0 0 15px var(--ice-blue); }
       
@@ -48,24 +46,27 @@ export default {
       .btn-beq:hover { background: var(--ice-blue); color: #000; box-shadow: 0 0 30px var(--ice-blue); }
       .btn-yt:hover { border-color: var(--yt-red); color: var(--yt-red); box-shadow: 0 0 30px var(--yt-red); background: rgba(255, 77, 77, 0.1); }
 
+      /* GRID SYSTEM */
       .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 90%; max-width: 1000px; z-index: 10; margin: 40px 0; }
       .box { padding: 30px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(165, 242, 255, 0.1); border-radius: 20px; transition: 0.6s ease; text-align: left; }
       .box h3 { margin-bottom: 15px; letter-spacing: 2px; transition: 0.4s; }
       .box p { font-size: 0.8rem; opacity: 0.6; line-height: 1.6; }
 
-      .box-bionic:hover { border-color: var(--bio-yellow); box-shadow: 0 0 40px rgba(255, 255, 161, 0.2); transform: translateY(-5px); }
+      /* INTERACTIVE HOVERS */
+      .box-bionic:hover { border-color: var(--bio-yellow); box-shadow: 0 0 40px rgba(255, 255, 161, 0.2); }
       .box-bionic:hover h3 { color: var(--bio-yellow); text-shadow: 0 0 10px var(--bio-yellow); }
-      .box-3g:hover { border-color: var(--3g-purple); box-shadow: 0 0 40px rgba(209, 130, 255, 0.2); transform: translateY(-5px); }
+      .box-3g:hover { border-color: var(--3g-purple); box-shadow: 0 0 40px rgba(209, 130, 255, 0.2); }
       .box-3g:hover h3 { color: var(--3g-purple); text-shadow: 0 0 10px var(--3g-purple); }
-      .box-strat:hover { border-color: var(--strat-green); box-shadow: 0 0 40px rgba(141, 255, 141, 0.2); transform: translateY(-5px); }
-      .box-strat:hover h3 { color: var(--strat-green); text-shadow: 0 0 10px var(--strat-green); }
-      .box-hub:hover { border-color: var(--hub-orange); box-shadow: 0 0 40px rgba(255, 179, 71, 0.2); transform: translateY(-5px); }
-      .box-hub:hover h3 { color: var(--hub-orange); text-shadow: 0 0 10px var(--hub-orange); }
+      .box-strat:hover { border-color: var(--hub-orange); box-shadow: 0 0 40px rgba(255, 179, 71, 0.2); }
+      .box-strat:hover h3 { color: var(--hub-orange); text-shadow: 0 0 10px var(--hub-orange); }
+      .box-hub:hover { border-color: var(--strat-green); box-shadow: 0 0 40px rgba(141, 255, 141, 0.2); }
+      .box-hub:hover h3 { color: var(--strat-green); text-shadow: 0 0 10px var(--strat-green); }
 
-      footer { padding: 40px; opacity: 0.6; font-size: 0.65rem; text-align: center; z-index: 10; width: 100%; margin-top: auto; border-top: 1px solid rgba(165, 242, 255, 0.1); }
-      footer a { color: var(--ice-blue); text-decoration: none; margin: 0 5px; transition: 0.3s; }
-      footer a:hover { text-shadow: 0 0 10px var(--ice-blue); opacity: 1; }
-      .legal-label { color: var(--ice-blue); font-weight: bold; margin-right: 5px; letter-spacing: 1px; }
+
+      /* FOOTER - PURISTISCH & WEISS GLÜHEND */
+      footer { padding: 50px 20px; opacity: 0.4; font-size: 0.7rem; text-align: center; z-index: 10; width: 100%; margin-top: auto; border-top: 1px solid rgba(165, 242, 255, 0.1); }
+      footer a { color: var(--ice-blue); text-decoration: none; margin: 0 20px; transition: 0.4s; letter-spacing: 2px; }
+      footer a:hover { color: #fff; text-shadow: 0 0 10px #fff, 0 0 20px #fff; opacity: 1; }
     `;
 
     const html = `
@@ -112,18 +113,11 @@ export default {
         </div>
 
         <footer>
-          <div style="margin-bottom:20px;">
-            <span class="legal-label">IMPRESSUM:</span> 
-            <a href="${CONFIG.impressum}" target="_blank">Ansehen</a> 
-            <a href="${CONFIG.impressum}" download>💾 Download</a>
-            
-            <span style="margin: 0 20px; opacity: 0.3;">|</span>
-            
-            <span class="legal-label">DATENSCHUTZ:</span> 
-            <a href="${CONFIG.datenschutz}" target="_blank">Ansehen</a> 
-            <a href="${CONFIG.datenschutz}" download>💾 Download</a>
-          </div>
-          DESIGN // STRATEGIC PROTOCOL // BY CHRISTOF SCHZYRBA
+          <a href="${CONFIG.impressum}" target="_blank">IMPRESSUM</a>
+          <span style="opacity:0.2;">|</span>
+          <a href="${CONFIG.datenschutz}" target="_blank">DATENSCHUTZ</a>
+          <br><br>
+          <div style="font-size: 0.6rem; opacity: 0.5; letter-spacing: 1px;">DESIGN // STRATEGIC PROTOCOL // BY CHRISTOF SCHZYRBA</div>
         </footer>
 
         <script>
