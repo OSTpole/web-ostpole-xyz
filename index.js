@@ -4,7 +4,7 @@ export default {
 
     const CONFIG = {
       titel: "OSTpole IMP",
-      slogan: "STRATEGIC GNOSIS // EST. 2004",
+      slogan: "WWW STRATEGIC GNOSIS // EST. 2004",
       beschreibung: "Digitale Souveränität & Bionische Infrastruktur.<br>Ihre Vision, unsere Architektur.",
       
       links: {
