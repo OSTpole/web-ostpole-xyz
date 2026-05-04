@@ -2,12 +2,9 @@ export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
 
-    // ==========================================================
-    // 1. DEINE BRÜCKE (Inhalte & Koordinaten)
-    // ==========================================================
     const CONFIG = {
-      // Titel wird im HTML-Bereich modular zusammengebaut
-      slogan: "WWW STRATEGIC GNOSIS // EST. 2004",
+      titel: "OSTpole IMP",
+      slogan: "STRATEGIC GNOSIS // EST. 2004",
       beschreibung: "Digitale Souveränität & Bionische Infrastruktur.<br>Ihre Vision, unsere Architektur.",
       
       links: {
@@ -20,15 +17,12 @@ export default {
       datenschutz: "https://raw.githubusercontent.com/OSTpole/web-ostpole-xyz/main/OSTpole_IMP_Datenschutzerklärung_DSGVO.pdf"
     };
 
-    // ==========================================================
-    // 2. DIE MASCHINENRAUM-EFFEKTE (Farben & Design)
-    // ==========================================================
     const styles = `
       @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap');
       :root { 
         --ice-blue: #a5f2ff; --bg: #050505; --yt-red: #ff4d4d; 
-        --3g-purple: #d182ff; --hub-orange: #ffb347; 
-        --bio-yellow: #ffffa1; --strat-green: #8dff8d; 
+        --3g-purple: #d182ff; --hub-green: #8dff8d; 
+        --bio-yellow: #ffffa1; --strat-orange: #ffb347; 
       }
       
       * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
@@ -41,25 +35,29 @@ export default {
       .star { position: absolute; background: #fff; border-radius: 50%; animation: moveStars 15s infinite linear; }
       @keyframes moveStars { from { transform: translateZ(-1000px); opacity: 0; } to { transform: translateZ(500px); opacity: 0.8; } }
 
-      .frame { margin-top: 60px; padding: 40px; border: 1px solid var(--ice-blue); border-radius: 30px; background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); text-align: center; z-index: 10; width: 90%; max-width: 800px; }
-      
-      /* HAUPT-TITEL */
+      /* --- DER LEBENDIGE RAHMEN --- */
+      @keyframes framePulse {
+        0%, 100% { 
+          transform: scale(1); border-color: rgba(165, 242, 255, 0.3);
+          box-shadow: 0 0 20px rgba(165, 242, 255, 0.1), inset 0 0 10px rgba(165, 242, 255, 0.05);
+        }
+        50% { 
+          transform: scale(1.02); border-color: rgba(165, 242, 255, 1);
+          box-shadow: 0 0 40px rgba(165, 242, 255, 0.6), 0 0 60px rgba(165, 242, 255, 0.2), inset 0 0 20px rgba(165, 242, 255, 0.3);
+        }
+      }
+      .frame { 
+        margin-top: 60px; padding: 40px; border: 2px solid var(--ice-blue); border-radius: 30px; 
+        background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); text-align: center; 
+        z-index: 10; width: 90%; max-width: 800px; animation: framePulse 4s infinite ease-in-out; 
+      }
+
       h1 { font-size: clamp(1.5rem, 5vw, 3rem); letter-spacing: 12px; margin-bottom: 10px; color: var(--ice-blue); text-shadow: 0 0 15px var(--ice-blue); display: inline-block; position: relative; }
-      
-      /* NEU: DAS SCHWEBENDE IMP-SIEGEL */
       @keyframes impFloat {
         0%, 100% { transform: translateY(0); text-shadow: 0 0 10px var(--ice-blue); opacity: 0.7; }
         50% { transform: translateY(-8px); text-shadow: 0 0 25px #fff; opacity: 1; }
       }
-      .imp-sigil {
-        font-size: 40%; /* Kleiner als die Hälfte */
-        font-weight: 400; /* Weniger wuchtig als der 900-Haupttitel */
-        vertical-align: super; /* Nach oben versetzt */
-        position: absolute;
-        animation: impFloat 6s infinite ease-in-out; /* Eigener, langsamerer Puls-Effekt */
-        letter-spacing: 4px;
-        margin-left: 10px; /* Bionischer Abstand */
-      }
+      .imp-sigil { font-size: 40%; vertical-align: super; position: absolute; animation: impFloat 6s infinite ease-in-out; letter-spacing: 4px; margin-left: 10px; }
       
       .btn { display: inline-block; padding: 12px 24px; border: 1px solid var(--ice-blue); color: var(--ice-blue); text-decoration: none; border-radius: 5px; margin: 10px; transition: 0.5s; font-size: 0.7rem; letter-spacing: 2px; }
       .btn-beq:hover { background: var(--ice-blue); color: #000; box-shadow: 0 0 30px var(--ice-blue); }
@@ -70,14 +68,18 @@ export default {
       .box h3 { margin-bottom: 15px; letter-spacing: 2px; transition: 0.4s; }
       .box p { font-size: 0.8rem; opacity: 0.6; line-height: 1.6; }
 
-      .box-bionic:hover { border-color: var(--bio-yellow); box-shadow: 0 0 40px rgba(255, 255, 161, 0.2); }
+      /* FARB-INTERAKTIONEN (UPDATE) */
+      .box-bionic:hover { border-color: var(--bio-yellow); box-shadow: 0 0 40px rgba(255, 255, 161, 0.2); transform: translateY(-5px); }
       .box-bionic:hover h3 { color: var(--bio-yellow); text-shadow: 0 0 10px var(--bio-yellow); }
-      .box-3g:hover { border-color: var(--3g-purple); box-shadow: 0 0 40px rgba(209, 130, 255, 0.2); }
+      
+      .box-3g:hover { border-color: var(--3g-purple); box-shadow: 0 0 40px rgba(209, 130, 255, 0.2); transform: translateY(-5px); }
       .box-3g:hover h3 { color: var(--3g-purple); text-shadow: 0 0 10px var(--3g-purple); }
-      .box-strat:hover { border-color: var(--strat-green); box-shadow: 0 0 40px rgba(141, 255, 141, 0.2); }
-      .box-strat:hover h3 { color: var(--strat-green); text-shadow: 0 0 10px var(--strat-green); }
-      .box-hub:hover { border-color: var(--hub-orange); box-shadow: 0 0 40px rgba(255, 179, 71, 0.2); }
-      .box-hub:hover h3 { color: var(--hub-orange); text-shadow: 0 0 10px var(--hub-orange); }
+      
+      .box-strat:hover { border-color: var(--strat-orange); box-shadow: 0 0 40px rgba(255, 179, 71, 0.2); transform: translateY(-5px); }
+      .box-strat:hover h3 { color: var(--strat-orange); text-shadow: 0 0 10px var(--strat-orange); }
+      
+      .box-hub:hover { border-color: var(--hub-green); box-shadow: 0 0 40px rgba(141, 255, 141, 0.2); transform: translateY(-5px); }
+      .box-hub:hover h3 { color: var(--hub-green); text-shadow: 0 0 10px var(--hub-green); }
 
       footer { padding: 50px 20px; opacity: 0.4; font-size: 0.7rem; text-align: center; z-index: 10; width: 100%; margin-top: auto; border-top: 1px solid rgba(165, 242, 255, 0.1); }
       footer a { color: var(--ice-blue); text-decoration: none; margin: 0 20px; transition: 0.4s; letter-spacing: 2px; }
@@ -99,7 +101,6 @@ export default {
         
         <main class="frame">
           <h1>OSTpole<span class="imp-sigil">IMP</span></h1>
-          
           <p style="color:var(--ice-blue); letter-spacing: 6px; font-size:0.6rem; opacity:0.8; margin-bottom:20px;">${CONFIG.slogan}</p>
           <p style="font-size:0.9rem; line-height:1.6; opacity:0.9;">${CONFIG.beschreibung}</p>
           <div style="margin-top:30px;">
@@ -119,12 +120,12 @@ export default {
           </div>
           <div class="box box-strat">
             <h3>STRATEGIC GNOSIS</h3>
-            <p>Quanten-bereite Protokolle und Consulting für digitale Imperien auf höchstem Niveau.</p>
+            <p>Strategische Protokolle und Consulting für digitale Imperien auf höchstem Niveau.</p>
           </div>
           <div class="box box-hub">
             <h3>PROJECT HUB // LAB</h3>
-            <p>Direkter Zugang zu Simulationen und Apps. Hier entstehen bionische Lösungen.</p>
-            <a href="${CONFIG.links.hub}" style="display:inline-block; margin-top:15px; color:var(--hub-orange); font-size:0.7rem; text-decoration:none; letter-spacing:1px;">[ ZUM LABOR ]</a>
+            <p>Direkter Zugang zu Simulationen und Apps. Validiert nach <strong>422 CC Compliance Protocol</strong>.</p>
+            <a href="${CONFIG.links.hub}" style="display:inline-block; margin-top:15px; color:var(--hub-green); font-size:0.7rem; text-decoration:none; letter-spacing:1px;">[ ZUM LABOR ]</a>
           </div>
         </div>
 
